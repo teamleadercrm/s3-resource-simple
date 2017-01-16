@@ -21,6 +21,7 @@ resources:
     bucket: {{aws-bucket}}
     path: [<optional>, use to sync to a specific path of the bucket instead of root of bucket]
     options: [<optional, see note below>]
+    region: <optional, see below>
 jobs:
 - name: <job name>
   plan:
@@ -53,4 +54,13 @@ we can upload _only_ the `results` subdirectory by using the following `options`
 options:
   - "--exclude '*'",
   - "--include 'results/*'"
+```
+
+### Region
+Interacting with some AWS regions (like London) requires AWS Signature Version
+4. This options allows you to explicitly specify region where your bucket is
+located (if this is set, AWS_DEFAULT_REGION env variable will be set accordingly).
+
+```yaml
+region: eu-west-2
 ```
