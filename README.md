@@ -27,6 +27,8 @@ jobs:
   plan:
   - <some Resource or Task that outputs files>
   - put: <resource name>
+    params:
+      dir: <directory>
 ```
 
 ## AWS Credentials
