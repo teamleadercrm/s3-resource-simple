@@ -19,7 +19,7 @@ payload=`cat`
 bucket=$(echo "$payload" | jq -r '.source.bucket')
 path=$(echo "$payload" | jq -r '.source.path // ""')
 options=$(echo "$payload" | jq -r '.source.options // [] | join(" ")')
-destination=$(echo "$payload" | jq -r '.params.destination // "."')
+destination=$(echo "$payload" | jq -r '.params.destination // ""')
 
 if [ -z "$destination" ]; then
     destination=dest
